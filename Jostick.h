@@ -1,6 +1,6 @@
-#define VERT_PIN A0
-#define HORZ_PIN A3
-#define SEL_PIN  34
+#define VERT_PIN 36  // SVP, mapeado a GPIO36 cafe 
+#define HORZ_PIN 39  // SVN, mapeado a GPIO39 amarillo
+#define SEL_PIN  32  // Ya está 
 
 #define VALOR_INICIAL 512
 #define VALOR_TOPE 1023
@@ -21,6 +21,6 @@ class Joystick {
     }
 
     bool isPressed() {
-      return !digitalRead(SEL_PIN); // El botón es activo bajo, por eso negamos el valor
+        return digitalRead(SEL_PIN) == LOW; // Asumiendo que el botón se conecta a GND
     }
 };
